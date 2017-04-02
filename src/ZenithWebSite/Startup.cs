@@ -169,7 +169,7 @@ namespace ZenithWebSite
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            //context.Database.Migrate();
+            context.Database.Migrate();
             SeedData.Initialize(context);
         }
     }
