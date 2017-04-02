@@ -132,7 +132,7 @@ namespace ZenithWebSite
         //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(ZenithContext context, IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(ApplicationDbContext context2, ZenithContext context, IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -169,6 +169,7 @@ namespace ZenithWebSite
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            context2.Database.Migrate();
             context.Database.Migrate();
             SeedData.Initialize(context);
         }
