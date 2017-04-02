@@ -54,7 +54,6 @@ namespace ZenithWebsite.Controllers
             var list = user.Roles;
 
             return list;
-            //return _context.Event.Include(@e => @e.Activity);
         }
 
     }
